@@ -10,6 +10,7 @@ public class CarController : MonoBehaviour
 
     // Settings
     [SerializeField] private float motorForce, breakForce, maxSteerAngle;
+    [SerializeField] private bool fourWheelDrive, frontWheelDrive;
 
     // Wheel Colliders
     [SerializeField] private WheelCollider frontLeftWheelCollider, frontRightWheelCollider;
@@ -18,6 +19,8 @@ public class CarController : MonoBehaviour
     // Wheels
     [SerializeField] private Transform frontLeftWheelTransform, frontRightWheelTransform;
     [SerializeField] private Transform rearLeftWheelTransform, rearRightWheelTransform;
+
+
 
     private void FixedUpdate() {
         GetInput();
@@ -38,8 +41,29 @@ private void GetInput() {
     }
 
     private void HandleMotor() {
-        frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
-        frontRightWheelCollider.motorTorque = verticalInput * motorForce;
+        if (fourWheelDrive)
+        {
+            frontWheelDrive=false;
+            rearLeftWheelCollider.motorTorque = verticalInput * motorForce;
+            rearRightWheelCollider.motorTorque = verticalInput * motorForce;
+            frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
+            frontRightWheelCollider.motorTorque = verticalInput * motorForce;
+            Debug.Log("4wheel");
+        }
+        else if (frontWheelDrive)
+        {
+            frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
+            frontRightWheelCollider.motorTorque = verticalInput * motorForce;
+            Debug.Log("frontwheel");
+        }
+        else
+        {
+            rearLeftWheelCollider.motorTorque = verticalInput * motorForce;
+            rearRightWheelCollider.motorTorque = verticalInput * motorForce;
+            Debug.Log("rear"); 
+        }
+        
+
         currentbreakForce = isBreaking ? breakForce : 0f;
         ApplyBreaking();
     }

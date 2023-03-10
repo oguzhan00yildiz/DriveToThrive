@@ -334,9 +334,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700d9991855e91640967e9ced88833ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorForce: 5000
-  breakForce: 3000
+  motorForce: 1000
+  breakForce: 2000
   maxSteerAngle: 30
+  fourWheelDrive: 1
+  frontWheelDrive: 1
   frontLeftWheelCollider: {fileID: 1066315974}
   frontRightWheelCollider: {fileID: 758796054}
   rearLeftWheelCollider: {fileID: 975204426}
@@ -855,8 +857,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469704353}
-  m_LocalRotation: {x: 0.07702682, y: -1e-45, z: 0, w: 0.99702907}
-  m_LocalPosition: {x: 0, y: 2.6290002, z: -8.146999}
+  m_LocalRotation: {x: 0.1046281, y: 0.0000000042779855, z: -4.5006773e-10, w: 0.9945114}
+  m_LocalPosition: {x: 0, y: 2.6290002, z: -6.067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1305,7 +1307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 1.2, z: -7.72}
+  m_FollowOffset: {x: 0, y: 1.2, z: -5.64}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
