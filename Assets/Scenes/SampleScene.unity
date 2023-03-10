@@ -334,9 +334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700d9991855e91640967e9ced88833ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorForce: 30000
+  motorForce: 5000
   breakForce: 3000
-  maxSteerAngle: 35
+  maxSteerAngle: 30
   frontLeftWheelCollider: {fileID: 1066315974}
   frontRightWheelCollider: {fileID: 758796054}
   rearLeftWheelCollider: {fileID: 975204426}
@@ -1144,7 +1144,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
@@ -1400,7 +1400,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
@@ -1462,7 +1462,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
@@ -1621,7 +1621,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
