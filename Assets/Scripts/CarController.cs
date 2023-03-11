@@ -10,6 +10,7 @@ public class CarController : MonoBehaviour
 
     // Settings
     [SerializeField] private float motorForce, breakForce, maxSteerAngle;
+    [SerializeField] private float steeringSpeed, maxSpeed;
     [SerializeField] private bool fourWheelDrive, frontWheelDrive;
 
     // Wheel Colliders
@@ -31,8 +32,7 @@ public class CarController : MonoBehaviour
 
 private void GetInput() {
         // Steering Input
-        horizontalInput = Input.GetAxis("Horizontal");
-
+        horizontalInput = Input.GetAxis("Horizontal")*steeringSpeed;
         // Acceleration Input
         verticalInput = Input.GetAxis("Vertical");
 
@@ -48,19 +48,19 @@ private void GetInput() {
             rearRightWheelCollider.motorTorque = verticalInput * motorForce;
             frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
             frontRightWheelCollider.motorTorque = verticalInput * motorForce;
-            Debug.Log("4wheel");
+            
         }
         else if (frontWheelDrive)
         {
             frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
             frontRightWheelCollider.motorTorque = verticalInput * motorForce;
-            Debug.Log("frontwheel");
+            
         }
         else
         {
             rearLeftWheelCollider.motorTorque = verticalInput * motorForce;
             rearRightWheelCollider.motorTorque = verticalInput * motorForce;
-            Debug.Log("rear"); 
+            
         }
         
 
@@ -75,8 +75,12 @@ private void GetInput() {
         rearRightWheelCollider.brakeTorque = currentbreakForce;
     }
 
-    private void HandleSteering() {
-        currentSteerAngle = maxSteerAngle * horizontalInput;
+    private void HandleSteering() 
+    
+    {
+        float speedFactor = GetComponent<Rigidbody>().velocity.magnitude / maxSpeed; // Calculate the speed factor
+        float currentSpeedSteering = Mathf.Lerp(0, maxSteerAngle, speedFactor); // Interpolate the steering angle based on speed
+        currentSteerAngle = currentSpeedSteering * horizontalInput;
         frontLeftWheelCollider.steerAngle = currentSteerAngle;
         frontRightWheelCollider.steerAngle = currentSteerAngle;
     }
