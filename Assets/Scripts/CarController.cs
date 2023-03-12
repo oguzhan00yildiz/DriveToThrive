@@ -11,7 +11,7 @@ public class CarController : MonoBehaviour
     // Settings
     [SerializeField] private float motorForce, breakForce, maxSteerAngle;
     [SerializeField] private float steeringSpeed, maxSpeed;
-    [SerializeField] private bool fourWheelDrive, frontWheelDrive;
+    [SerializeField] private bool fourWheelDrive, frontWheelDrive,brakeFourWheel,brakeFrontWheel;
 
     // Wheel Colliders
     [SerializeField] private WheelCollider frontLeftWheelCollider, frontRightWheelCollider;
@@ -68,11 +68,28 @@ private void GetInput() {
         ApplyBreaking();
     }
 
-    private void ApplyBreaking() {
-        frontRightWheelCollider.brakeTorque = currentbreakForce;
-        frontLeftWheelCollider.brakeTorque = currentbreakForce;
-        rearLeftWheelCollider.brakeTorque = currentbreakForce;
-        rearRightWheelCollider.brakeTorque = currentbreakForce;
+    private void ApplyBreaking() 
+    {
+        if (brakeFourWheel)
+        {
+            frontRightWheelCollider.brakeTorque = currentbreakForce;
+            frontLeftWheelCollider.brakeTorque = currentbreakForce;
+            rearLeftWheelCollider.brakeTorque = currentbreakForce;
+            rearRightWheelCollider.brakeTorque = currentbreakForce;
+        }
+        else if (brakeFrontWheel)
+        {
+            frontRightWheelCollider.brakeTorque = currentbreakForce;
+            frontLeftWheelCollider.brakeTorque = currentbreakForce;
+        }
+        else
+        {
+            rearLeftWheelCollider.brakeTorque = currentbreakForce;
+            rearRightWheelCollider.brakeTorque = currentbreakForce;
+        }
+        
+            
+        
     }
 
     private void HandleSteering() 
