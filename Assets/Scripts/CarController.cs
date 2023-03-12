@@ -12,7 +12,7 @@ public class CarController : MonoBehaviour
 
     // Settings
     [SerializeField] private float motorForce, breakForce, maxSteerAngle;
-    [SerializeField] private float steeringSpeed, maxSpeed;
+    [SerializeField] private float  maxSpeed;
     [SerializeField] private bool fourWheelDrive, frontWheelDrive,brakeFourWheel,brakeFrontWheel;
     [SerializeField]private TMP_Text speedText;
 
@@ -35,12 +35,34 @@ public class CarController : MonoBehaviour
 
 private void GetInput() {
         // Steering Input
-        horizontalInput = Input.GetAxis("Horizontal")*steeringSpeed;
+        horizontalInput = Input.GetAxis("Horizontal");
         // Acceleration Input
-        verticalInput = Input.GetAxis("Vertical");
+       // verticalInput = Input.GetAxis("Vertical");
 
         // Breaking Input
         isBreaking = Input.GetKey(KeyCode.Space);
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            verticalInput =1f;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            if (spd<=8)
+            {
+               verticalInput =-1f; 
+            }
+            else
+            {
+                isBreaking = true;
+                ApplyBreaking();
+            }
+            
+        }
+        else
+        {
+            verticalInput=0f;
+        }
     }
 
     private void HandleMotor() {
@@ -75,6 +97,7 @@ private void GetInput() {
     {
         if (brakeFourWheel)
         {
+            brakeFrontWheel=false;
             frontRightWheelCollider.brakeTorque = currentbreakForce;
             frontLeftWheelCollider.brakeTorque = currentbreakForce;
             rearLeftWheelCollider.brakeTorque = currentbreakForce;
