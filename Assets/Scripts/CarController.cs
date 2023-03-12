@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CarController : MonoBehaviour
 {
    private float horizontalInput, verticalInput;
     private float currentSteerAngle, currentbreakForce;
     private bool isBreaking;
+    private float spd;
 
     // Settings
     [SerializeField] private float motorForce, breakForce, maxSteerAngle;
     [SerializeField] private float steeringSpeed, maxSpeed;
     [SerializeField] private bool fourWheelDrive, frontWheelDrive,brakeFourWheel,brakeFrontWheel;
+    [SerializeField]private TMP_Text speedText;
 
     // Wheel Colliders
     [SerializeField] private WheelCollider frontLeftWheelCollider, frontRightWheelCollider;
@@ -97,9 +100,11 @@ private void GetInput() {
     {
         float speedFactor = GetComponent<Rigidbody>().velocity.magnitude / maxSpeed; // Calculate the speed factor
         float currentSpeedSteering = Mathf.Lerp(0, maxSteerAngle, speedFactor); // Interpolate the steering angle based on speed
-        currentSteerAngle = currentSpeedSteering * horizontalInput;
+        currentSteerAngle = (maxSteerAngle-currentSpeedSteering) * horizontalInput;
         frontLeftWheelCollider.steerAngle = currentSteerAngle;
         frontRightWheelCollider.steerAngle = currentSteerAngle;
+        spd =GetComponent<Rigidbody>().velocity.magnitude;
+        speedText.text= ((int)spd).ToString() ; 
     }
 
     private void UpdateWheels() {
