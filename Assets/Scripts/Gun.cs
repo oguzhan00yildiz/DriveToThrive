@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform muzzle;
+    //[SerializeField] private Image crosshairImage;
+    //[SerializeField] private LayerMask hitLayerMask;
     private float timeSinceLastShoot;
 
     private void Start()
@@ -19,6 +22,8 @@ public class Gun : MonoBehaviour
         timeSinceLastShoot += Time.deltaTime;
 
         Debug.DrawRay(muzzle.position, muzzle.forward);
+
+       
     }
     
     private bool CanShoot() => !gunData.reloading && timeSinceLastShoot > 1f / (gunData.fireRate / 60f);
