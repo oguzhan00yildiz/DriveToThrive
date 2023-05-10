@@ -17,23 +17,23 @@ public class WeaponSway : MonoBehaviour
     
     void FixedUpdate()
     {
-        RotateTower();
-        RotateGun();
+        /* RotateTower();
+        RotateGun(); */
     }
 
-    void RotateTower()
+    /* void RotateTower()
     {
         Quaternion cameraRotation = cam.transform.rotation;
-        /* towerAngle = cameraRotation.eulerAngles.y;
-        towerAngle = Mathf.Clamp(towerAngle, -90, 90); */
+        towerAngle = cameraRotation.eulerAngles.y;
+        towerAngle = Mathf.Clamp(towerAngle, -90, 90);
         Tower.localRotation = Quaternion.Euler(0, cameraRotation.eulerAngles.y, 0);
     }
 
     void RotateGun()
     {
         Quaternion cameraRotation = cam.transform.rotation;
-        /* gunAngle = cameraRotation.eulerAngles.x;
-        gunAngle = Mathf.Clamp(gunAngle, -45, 45); */
+        gunAngle = cameraRotation.eulerAngles.x;
+        gunAngle = Mathf.Clamp(gunAngle, -45, 45);
         Gun.localRotation = Quaternion.Euler(cameraRotation.eulerAngles.x, 0,0); 
-    }
+    } */
 }

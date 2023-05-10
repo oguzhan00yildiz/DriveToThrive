@@ -8,6 +8,9 @@ public class Gun : MonoBehaviour
     [Header("References")]
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform muzzle;
+    [SerializeField] private Animator animator;
+    [SerializeField] private ParticleSystem muzzleFlash;
+
     //[SerializeField] private Image crosshairImage;
     //[SerializeField] private LayerMask hitLayerMask;
     private float timeSinceLastShoot;
@@ -33,7 +36,7 @@ public class Gun : MonoBehaviour
         {
             if(CanShoot())
             {
-                if(Physics.Raycast(muzzle.position, transform.forward, out RaycastHit hitInfo, gunData.maxDistance))
+                if(Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxDistance))
                 {
                     Debug.Log(hitInfo.transform.name);
                     IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
@@ -49,6 +52,8 @@ public class Gun : MonoBehaviour
     private void OnGunShoot()
     {
         //for anims and effects
+        animator.SetTrigger("Shoot");
+        muzzleFlash.Play();
     }
 
     public void StartReloading()

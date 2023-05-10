@@ -6,17 +6,13 @@ public class LookAtCamera : MonoBehaviour
 {
     [SerializeField]
     private Transform turretBarrel;
-    // Start is called before the first frame update
-    void Update()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
+
+        //Ray turreten çıksın crosshair ona göre hareket etsin
     
         if(Physics.Raycast(rayOrigin, out hitInfo))
         {
