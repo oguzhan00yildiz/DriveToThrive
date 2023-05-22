@@ -6,6 +6,17 @@ public class Target : MonoBehaviour, IDamageable
 {
     private float health = 100f;
     [SerializeField] private ParticleSystem blood;
+    public bool isDead = false;
+    public static Target instance;
+
+    void Start()
+    {
+        instance = this;
+    }
+    void Update()
+    {
+        
+    }
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -13,7 +24,8 @@ public class Target : MonoBehaviour, IDamageable
 
         if(health <= 0)
         {
-            Destroy(gameObject);
+            isDead = true;
+            Destroy(gameObject, 10f);
         }
     }
 }
