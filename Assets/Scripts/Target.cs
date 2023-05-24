@@ -23,15 +23,15 @@ public class Target : MonoBehaviour, IDamageable
         health -= damage;
         blood.Play();
 
-        if(health <= 0)
+        if(health <= 0 && !isDead)
         {
             isDead = true;
             Destroy(gameObject, 5f);
         }
-        else
+        /* else
         {
             isDead = false;
-        }
+        } */
     }
 
     void OnTriggerEnter(Collider other)
