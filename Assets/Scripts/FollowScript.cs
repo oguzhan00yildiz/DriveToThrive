@@ -10,6 +10,7 @@ public class FollowScript : MonoBehaviour
     public bool isFollowing;
     public float distance;
     public GameObject car;
+    public bool canFollow = false;
     public static FollowScript instance;
     // Start is called before the first frame update
     void Start()

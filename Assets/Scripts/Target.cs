@@ -7,6 +7,7 @@ public class Target : MonoBehaviour, IDamageable
     private float health = 100f;
     [SerializeField] private ParticleSystem blood;
     public bool isDead = false;
+    public bool isAttacking = false;
     public static Target instance;
 
     void Start()
@@ -15,7 +16,7 @@ public class Target : MonoBehaviour, IDamageable
     }
     void Update()
     {
-        
+
     }
     public void TakeDamage(float damage)
     {
@@ -25,7 +26,39 @@ public class Target : MonoBehaviour, IDamageable
         if(health <= 0)
         {
             isDead = true;
-            Destroy(gameObject, 10f);
+            Destroy(gameObject, 5f);
+        }
+        else
+        {
+            isDead = false;
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Car"))
+        {
+            isAttacking = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Car"))
+        {
+            isAttacking = false;
+        }
+    }
+    /* void Attack()
+    {
+        if(FollowScript.instance.distance <= 5f)
+        {
+            isAttacking = true;
+        }
+        else
+        {
+            isAttacking = false;
+        }
+    } */
+   
 }

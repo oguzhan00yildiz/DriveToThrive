@@ -16,5 +16,6 @@ public class ZombieAnimatorScript : MonoBehaviour
     {
         animator.SetBool("isRunning", FollowScript.instance.isFollowing);
         animator.SetBool("isDead", Target.instance.isDead);
+        animator.SetBool("isAttacking",Target.instance.isAttacking);
     }
 }

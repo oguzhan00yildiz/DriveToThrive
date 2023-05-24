@@ -4205,6 +4205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
+    - target: {fileID: 3558857171221684367, guid: 3e67574415cd3da488fdaff329959f15, type: 3}
+      propertyPath: m_TagString
+      value: Car
+      objectReference: {fileID: 0}
     - target: {fileID: 4190679791767484981, guid: 3e67574415cd3da488fdaff329959f15, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -23951,7 +23955,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058862182}
-  m_LocalRotation: {x: 0.16018222, y: 7.742198e-15, z: -1.6644938e-15, w: 0.9870875}
+  m_LocalRotation: {x: 0.1601822, y: -0.00000004160263, z: 0.000000006751175, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29906,7 +29910,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348878561}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.32
   m_Height: 1.7869384
@@ -29942,6 +29946,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 103332377}
+  isDead: 0
+  isAttacking: 0
 --- !u!195 &1348878565
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -38899,6 +38905,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 103332377}
+  isDead: 0
+  isAttacking: 0
 --- !u!136 &1716131464
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -45009,7 +45017,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978776755}
-  m_LocalRotation: {x: 0.11412972, y: 0.000000017093955, z: -0.0000000019637596, w: 0.9934659}
+  m_LocalRotation: {x: 0.11412972, y: -0.000000017093951, z: 0.0000000019637594, w: 0.9934659}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
