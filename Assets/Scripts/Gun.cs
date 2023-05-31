@@ -54,6 +54,8 @@ public class Gun : MonoBehaviour
         //for anims and effects
         animator.SetTrigger("Shoot");
         muzzleFlash.Play();
+
+        FindObjectOfType<AudioManager>().Play("ShootTurret");
     }
 
     public void StartReloading()
@@ -67,6 +69,7 @@ public class Gun : MonoBehaviour
     private IEnumerator Reload()
     {
         gunData.reloading = true;
+        FindObjectOfType<AudioManager>().Play("ReloadTurret");
         yield return new WaitForSeconds(gunData.reloadTime);
 
         gunData.currentAmmo = gunData.magSize;

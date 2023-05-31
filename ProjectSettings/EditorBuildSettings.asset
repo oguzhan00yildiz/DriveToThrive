@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: b62de8be97b1b4346ad8e25fe197a2fc
+  - enabled: 1
     path: Assets/Scenes/Low Poly Road Pack Demo.unity
     guid: 8d68a8c139112ee4387ec230ac89a4a2
   m_configObjects: {}
