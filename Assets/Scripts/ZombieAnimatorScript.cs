@@ -14,8 +14,8 @@ public class ZombieAnimatorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("isRunning", FollowScript.instance.isFollowing);
-        animator.SetBool("isDead", Target.instance.isDead);
-        animator.SetBool("isAttacking",Target.instance.isAttacking);
+        //animator.SetBool("isRunning", FollowScript.instance.isFollowing);
+        //animator.SetBool("isDead", Target.instance.isDead);
+        //animator.SetBool("isAttacking",Target.instance.isAttacking);
     }
 }

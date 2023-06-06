@@ -9,10 +9,12 @@ public class Target : MonoBehaviour, IDamageable
     public bool isDead = false;
     public bool isAttacking = false;
     public static Target instance;
+    public Animator animator;
 
     void Start()
     {
         instance = this;
+        animator = gameObject.GetComponent<Animator>();
     }
     void Update()
     {
@@ -25,7 +27,7 @@ public class Target : MonoBehaviour, IDamageable
 
         if(health <= 0 && !isDead)
         {
-            isDead = true;
+            animator.SetTrigger("Die");
             Destroy(gameObject, 5f);
         }
         /* else
@@ -38,10 +40,11 @@ public class Target : MonoBehaviour, IDamageable
     {
         if(other.CompareTag("Car"))
         {
+            animator.SetBool("isAttacking", true);
             IDamageable damageable = CarHealth.instance;
             float damageAmount = Random.Range(10f, 20f);
             damageable?.TakeDamage(damageAmount);
-            isAttacking = true;
+            //isAttacking = true;
         }
     }
 
@@ -49,7 +52,8 @@ public class Target : MonoBehaviour, IDamageable
     {
         if(other.CompareTag("Car"))
         {
-            isAttacking = false;
+            animator.SetBool("isAttacking", false);
+            //isAttacking = false;
         }
     }
     /* void Attack()

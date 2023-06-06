@@ -38364,6 +38364,7 @@ MonoBehaviour:
   blood: {fileID: 103332377}
   isDead: 0
   isAttacking: 0
+  animator: {fileID: 0}
 --- !u!136 &1716131464
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -38435,6 +38436,7 @@ MonoBehaviour:
   distance: 0
   car: {fileID: 0}
   canFollow: 0
+  animator: {fileID: 0}
 --- !u!1001 &1720368279
 PrefabInstance:
   m_ObjectHideFlags: 0

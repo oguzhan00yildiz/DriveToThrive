@@ -12,11 +12,13 @@ public class FollowScript : MonoBehaviour
     public GameObject car;
     public bool canFollow = false;
     public static FollowScript instance;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         nMesh = GetComponent<NavMeshAgent>();
         instance = this;
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,17 +26,21 @@ public class FollowScript : MonoBehaviour
     {
         distance = Vector3.Distance(gameObject.transform.position, car.transform.position);
         Follow();
+
+        if(distance<10f)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else if (distance > 10f)
+        {
+            animator.SetBool("isRunning", false);
+        }
     }
     void Follow()
     {
         if(distance < 10f && !Target.instance.isDead)
         {
             nMesh.destination = player.position;
-            isFollowing = true;
-        }
-        else
-        {
-            isFollowing = false;
         }
     }
 }
