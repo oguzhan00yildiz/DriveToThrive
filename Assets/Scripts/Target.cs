@@ -38,6 +38,9 @@ public class Target : MonoBehaviour, IDamageable
     {
         if(other.CompareTag("Car"))
         {
+            IDamageable damageable = CarHealth.instance;
+            float damageAmount = Random.Range(10f, 20f);
+            damageable?.TakeDamage(damageAmount);
             isAttacking = true;
         }
     }
