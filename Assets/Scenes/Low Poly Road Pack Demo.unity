@@ -3774,6 +3774,10 @@ PrefabInstance:
       propertyPath: speedText
       value: 
       objectReference: {fileID: 53314944}
+    - target: {fileID: 911683790714132495, guid: 3e67574415cd3da488fdaff329959f15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.000000011483573
+      objectReference: {fileID: 0}
     - target: {fileID: 3558857171221684367, guid: 3e67574415cd3da488fdaff329959f15, type: 3}
       propertyPath: m_Name
       value: Car
@@ -3820,6 +3824,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190679791767484981, guid: 3e67574415cd3da488fdaff329959f15, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427273202252085320, guid: 3e67574415cd3da488fdaff329959f15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 89.9802
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427273202252085320, guid: 3e67574415cd3da488fdaff329959f15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.000059014634
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692336671989448360, guid: 3e67574415cd3da488fdaff329959f15, type: 3}
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

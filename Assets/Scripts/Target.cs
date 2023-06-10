@@ -30,10 +30,6 @@ public class Target : MonoBehaviour, IDamageable
             animator.SetTrigger("Die");
             Destroy(gameObject, 5f);
         }
-        /* else
-        {
-            isDead = false;
-        } */
     }
 
     void OnTriggerEnter(Collider other)
