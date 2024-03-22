@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Turret
   damage: 10
   maxDistance: 200
-  currentAmmo: 50
+  currentAmmo: 37
   magSize: 50
   fireRate: 300
   reloadTime: 1.5
-  reloading: 0
+  reloading: 1

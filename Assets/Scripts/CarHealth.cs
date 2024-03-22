@@ -21,7 +21,7 @@ public class CarHealth : MonoBehaviour, IDamageable
     }
     void Update()
     {
-        carHealthTXT.text = ((int) health).ToString();
+        carHealthTXT.text = ((int) health).ToString()+" HP";
 
         if(health <= 0)
         {

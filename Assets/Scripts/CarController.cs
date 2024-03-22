@@ -127,7 +127,7 @@ private void GetInput() {
         frontLeftWheelCollider.steerAngle = currentSteerAngle;
         frontRightWheelCollider.steerAngle = currentSteerAngle;
         spd =GetComponent<Rigidbody>().velocity.magnitude;
-        speedText.text= ((int)spd).ToString() ; 
+        speedText.text= ((int)spd).ToString()+" KM/H" ; 
     }
 
     private void UpdateWheels() {

@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class Gun : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GunData gunData;
+    [SerializeField] public GunData gunData;
     [SerializeField] private Transform muzzle;
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem muzzleFlash;
+    static public Gun instance;
 
     //[SerializeField] private Image crosshairImage;
     //[SerializeField] private LayerMask hitLayerMask;
@@ -19,6 +20,9 @@ public class Gun : MonoBehaviour
     {
         PlayerShoot.shootInput += Shoot;
         PlayerShoot.reloadInput += StartReloading;
+
+        gunData.currentAmmo = 50;
+        instance = this;
     }
     private void Update()
     {
@@ -26,16 +30,17 @@ public class Gun : MonoBehaviour
 
         Debug.DrawRay(muzzle.position, muzzle.forward);
 
-       
+
     }
-    
-    private bool CanShoot() => !gunData.reloading && timeSinceLastShoot > 1f / (gunData.fireRate / 60f);
+    //!gunData.reloading
+    private bool CanShoot() =>  timeSinceLastShoot > 1f / (gunData.fireRate / 60f);
     public void Shoot()
     {
         if(gunData.currentAmmo > 0)
         {
             if(CanShoot())
             {
+                Debug.Log("Shoot can shoot");
                 if(Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxDistance))
                 {
                     Debug.Log(hitInfo.transform.name);

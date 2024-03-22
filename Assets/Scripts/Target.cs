@@ -23,7 +23,8 @@ public class Target : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         health -= damage;
-        blood.Play();
+        Instantiate(blood, transform.position, Quaternion.identity);
+        Destroy(blood, 1f);
 
         if(health <= 0 && !isDead)
         {
